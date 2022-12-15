@@ -1,0 +1,34 @@
+.container
+  display: grid
+  grid-template-columns: auto
+  grid-template-rows: auto
+  grid-template-areas:"imagem acessorios" "imagem estilo" "botoes ."
+
+  .imagem
+    width: 100%
+    height: 100px
+    background-color: purple
+    grid-area: imagem
+
+  .acessorios
+    width: 100%
+    height: min-content
+    padding: 10px
+    background-color: red
+    grid-area: acessorios
+
+    #acessorios__botoes-acessorios
+      display: flex
+      gap: 10px
+
+  .estilo
+    width: 100%
+    height: 100px
+    background-color: yellow
+    grid-area: estilo
+
+  .botoes
+    width: 100%
+    height: 100px
+    background-color: green
+    grid-area: botoes
