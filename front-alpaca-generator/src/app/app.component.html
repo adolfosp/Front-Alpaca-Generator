@@ -1,18 +1,29 @@
 <main class="container">
   <section class="imagem">
+    <img src="../assets/backgrounds/blue50.png" class="imagem__backgrounds" width="350" height="350">
+    <img src="../assets/nose.png" class="imagem__nose" width="120" height="120">
+    <img src="../assets/neck/bend-forward.png" class="imagem__neck" width="120" height="120">
+    <img src="../assets/ears/tilt-backward.png" class="imagem__ears" width="120" height="120">
+    <img src="../assets/eyes/angry.png" class="imagem__eyes" width="120" height="120">
+    <img src="../assets/hair/bang.png" class="imagem__hair" width="120" height="120">
+    <img src="../assets/leg/bubble-tea.png" class="imagem__leg" width="120" height="120">
+    <img src="../assets/mouth/eating.png" class="imagem__mouth" width="120" height="120">
+    <img src="../assets/neck/thick.png" class="imagem__neck" width="120" height="120">
 
   </section>
   <section class="acessorios">
     <h1>Accessorize the alpaca's</h1>
-    <div id="acessorios__botoes-acessorios">
-      <div *ngFor="let name of tiposHair">
-        <button>{{name}}</button>
-      </div>
+    <div *ngFor="let tipo of tiposAcessorios">
+      <button (click)="listarAcessorioSelecionado(tipo)">{{tipo}}</button>
     </div>
   </section>
   <section class="estilo">
     <h1>Style</h1>
-
+    <div class="estilo__botoes-estilo">
+      <div *ngFor="let name of estilos">
+        <button>{{name}}</button>
+      </div>
+    </div>
   </section>
   <section class="botoes">
 
