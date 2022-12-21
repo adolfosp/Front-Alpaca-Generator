@@ -20,7 +20,7 @@ export class AppComponent {
   public estilos: Array<string> = [];
   public tiposAcessorios: Array<string>;
 
-  private labels:  {[key in AcessoriosAlpaca]: any} = {
+  private labels: {[key in AcessoriosAlpaca]: any} = {
     0: Hair,
     1: Ears,
     2: Eyes,
