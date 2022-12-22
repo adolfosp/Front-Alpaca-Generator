@@ -1,13 +1,13 @@
 <main class="container">
   <section class="imagem">
-    <img src="../assets/backgrounds/blue50.png" class="imagem__backgrounds" width="700" height="700">
-    <img src="../assets/nose.png" class="imagem__nose" width="450" height="450">
-    <img src="../assets/ears/tilt-backward.png" class="imagem__ears" width="120" height="120">
-    <img src="../assets/eyes/angry.png" class="imagem__eyes" width="250" height="250">
-    <img src="../assets/hair/bang.png" class="imagem__hair" width="120" height="120">
-    <img src="../assets/leg/bubble-tea.png" class="imagem__leg" width="600" height="600" >
-    <img src="../assets/mouth/eating.png" class="imagem__mouth" width="100" height="100">
-    <img src="../assets/neck/default.png" class="imagem__neck" width="500" height="500">
+    <img [src]="caminhoBackground" alt="background alpaca" class="imagem__backgrounds" width="700" height="700">
+    <img src="../assets/nose.png" alt="nose alpaca" class="imagem__nose" width="450" height="450">
+    <img [src]="caminhoEars" alt="ears alpaca" class="imagem__ears" width="120" height="120">
+    <img [src]="caminhoEyes" alt="eyes alpaca" class="imagem__eyes" width="250" height="250">
+    <img [src]="caminhoHair" alt="hair alpaca" class="imagem__hair" width="120" height="120">
+    <img [src]="caminhoLeg" alt="leg alpaca" class="imagem__leg" width="600" height="600" >
+    <img [src]="caminhoMouth" alt="mouth alpaca" class="imagem__mouth" width="100" height="100">
+    <img [src]="caminhoNeck" alt="neck alpaca" class="imagem__neck" width="500" height="500">
 
   </section>
   <section class="acessorios">
@@ -20,7 +20,7 @@
     <h1>Style</h1>
     <div class="estilo__botoes-estilo">
       <div *ngFor="let name of estilos">
-        <button>{{name}}</button>
+        <button (click)="selecionarEstilo(name)">{{name}}</button>
       </div>
     </div>
   </section>

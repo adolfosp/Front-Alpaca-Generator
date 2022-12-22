@@ -17,10 +17,8 @@ import { Mouth } from '../enums/mouth.enum';
 })
 export class AppComponent {
 
-  public estilos: Array<string> = [];
-  public tiposAcessorios: Array<string>;
-
-  private labels: {[key in AcessoriosAlpaca]: any} = {
+  private _acessorioSelecionado = "";
+  private _labels: {[key in AcessoriosAlpaca]: any} = {
     0: Hair,
     1: Ears,
     2: Eyes,
@@ -31,19 +29,50 @@ export class AppComponent {
     7: Background
   }
 
+  public estilos: Array<string> = [];
+  public tiposAcessorios: Array<string>;
+
+  public caminhoBackground = "";
+  public caminhoHair = "";
+  public caminhoEyes = "";
+  public caminhoEars = "";
+  public caminhoMouth = "";
+  public caminhoNeck = "";
+  public caminhoLeg = "";
+  public caminhoAcessories = "";
+
+
   constructor(){
     this.tiposAcessorios = this.obterChavesEnum(AcessoriosAlpaca);
     this.estilos = this.obterChavesEnum(Hair);
-
+    this.atribuirCaminhoImagemPadrao();
   }
 
-  public listarAcessorioSelecionado(tipoAcessorio: string){
-    let indexEnum = AcessoriosAlpaca[tipoAcessorio];
-    this.estilos = this.obterChavesEnum(this.labels[indexEnum]);
-
+  private atribuirCaminhoImagemPadrao(): void{
+    this.caminhoBackground = "assets/backgrounds/BLUE_50.png";
+    this.caminhoAcessories = "assets/acessories/HEADPHONE.png";
+    this.caminhoEars = "assets/ears/DEFAULT.png";
+    this.caminhoEyes = "assets/ears/DEFAULT.png";
+    this.caminhoHair = "assets/hair/DEFAULT.png";
+    this.caminhoLeg = "assets/leg/DEFAULT.png";
+    this.caminhoMouth = "assets/mouth/DEFAULT.png";
+    this.caminhoNeck = "assets/neck/DEFAULT.png";
   }
 
   private obterChavesEnum<T>(tipoEnum: T): any{
     return Object.keys(tipoEnum as Type).filter((key: any) => !isNaN(Number(tipoEnum[key])));
   }
+
+  public listarAcessorioSelecionado(tipoAcessorio: string){
+    this._acessorioSelecionado = tipoAcessorio.toLowerCase();
+    let indexEnum = AcessoriosAlpaca[tipoAcessorio];
+    this.estilos = this.obterChavesEnum(this._labels[indexEnum]);
+
+  }
+
+  public selecionarEstilo(nomeEstilo: string): void {
+    this.caminhoBackground = `../assets/${this._acessorioSelecionado}/${nomeEstilo}.png`;
+    console.log(this.caminhoBackground);
+  }
+
 }
