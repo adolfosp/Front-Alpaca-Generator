@@ -3,6 +3,5 @@ export enum Hair {
   CURLS,
   DEFAULT,
   FANCY,
-  QUIFF,
   SHORT,
 }

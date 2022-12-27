@@ -1,5 +1,4 @@
 export enum Background{
-  DEFAULT,
   BLUE_50,
   BLUE_60,
   BLUE_70,

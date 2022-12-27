@@ -5,6 +5,6 @@ export enum AcessoriosAlpaca {
   MOUTH,
   NECK,
   LEG,
-  ACESSORIES,
+  ACCESSORIES,
   BACKGROUNDS,
 }
