@@ -93,6 +93,8 @@ export class AppComponent {
       this.caminhoLeg = `assets/${this.acessorioSelecionado}/${nomeEstilo}.png`;
     }else if(this.acessorioSelecionado == "accessories"){
       this.caminhoAccessories = `assets/${this.acessorioSelecionado}/${nomeEstilo}.png`;
+    }else if(this.acessorioSelecionado == "neck"){
+      this.caminhoNeck = `assets/${this.acessorioSelecionado}/${nomeEstilo}.png`;
     }
 
   }
