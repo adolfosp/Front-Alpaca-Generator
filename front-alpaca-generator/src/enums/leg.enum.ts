@@ -3,7 +3,7 @@ export enum Leg{
   BUBBLE_TEA,
   COOKIE,
   GAME_CONSOLE,
-  TILE_BACKWARD,
+  TILT_BACKWARD,
   TILT_FORWARD
 
 }
