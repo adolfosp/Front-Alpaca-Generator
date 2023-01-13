@@ -1,0 +1,9 @@
+export enum Leg{
+  DEFAULT,
+  BUBBLE_TEA,
+  COOKIE,
+  GAME_CONSOLE,
+  TILT_BACKWARD,
+  TILT_FORWARD
+
+}
