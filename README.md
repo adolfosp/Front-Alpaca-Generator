@@ -17,7 +17,7 @@
 ## What I learned with this project?
   - I improve my logic to make a better code not to get badly done
 ## Presentation of the application
-
+![gift_alpaca](https://user-images.githubusercontent.com/39220517/212215693-0848281c-4562-44d3-9de3-6c5b8a08724d.gif)
 ## How to run?
 
 - Clone this repository
