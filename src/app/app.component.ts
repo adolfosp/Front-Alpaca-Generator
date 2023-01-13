@@ -18,7 +18,7 @@ const saveHtmlPng = require('save-html-as-image');
 })
 export class AppComponent {
 
-  private _labels: {[key in AcessoriosAlpaca]: any} = {
+  private _labels: { [key in AcessoriosAlpaca]: any } = {
     0: Hair,
     1: Ears,
     2: Eyes,
@@ -43,14 +43,14 @@ export class AppComponent {
   public acessorioSelecionado = "hair";
 
 
-  constructor(){
+  constructor() {
     this.tiposAcessorios = this.obterChavesEnum(AcessoriosAlpaca);
     this.estilos = this.obterChavesEnum(Hair);
     this.atribuirCaminhoImagemPadrao();
 
   }
 
-  private atribuirCaminhoImagemPadrao(): void{
+  private atribuirCaminhoImagemPadrao(): void {
     this.caminhoBackground = "assets/backgrounds/BLUE_50.png";
     this.caminhoAccessories = "assets/accessories/HEADPHONE.png";
     this.caminhoEars = "assets/ears/DEFAULT.png";
@@ -61,12 +61,12 @@ export class AppComponent {
     this.caminhoNeck = "assets/neck/DEFAULT.png";
   }
 
-  private obterChavesEnum<T>(tipoEnum: T): Array<string>{
+  private obterChavesEnum<T>(tipoEnum: T): Array<string> {
     return Object.keys(tipoEnum as Type)
-                 .filter((key: any) => !isNaN(Number(tipoEnum[key])));
+      .filter((key: any) => !isNaN(Number(tipoEnum[key])));
   }
 
-  public listarAcessorioSelecionado(tipoAcessorio: string){
+  public listarAcessorioSelecionado(tipoAcessorio: string) {
     this.acessorioSelecionado = tipoAcessorio.toLowerCase();
     let indexEnum = AcessoriosAlpaca[tipoAcessorio];
     this.estilos = this.obterChavesEnum(this._labels[indexEnum]);
@@ -79,24 +79,43 @@ export class AppComponent {
 
   public selecionarEstilo(nomeEstilo: string): void {
 
-    if(this.acessorioSelecionado == "hair"){
-      this.caminhoHair = `assets/${this.acessorioSelecionado}/${nomeEstilo}.png`;
-    }else if(this.acessorioSelecionado == "backgrounds"){
-      this.caminhoBackground = `assets/${this.acessorioSelecionado}/${nomeEstilo}.png`;
-    }else if(this.acessorioSelecionado == "eyes"){
-      this.caminhoEyes = `assets/${this.acessorioSelecionado}/${nomeEstilo}.png`;
-    }else if(this.acessorioSelecionado == "mouth"){
-      this.caminhoMouth = `assets/${this.acessorioSelecionado}/${nomeEstilo}.png`;
-    }else if(this.acessorioSelecionado == "ears"){
-      this.caminhoEars = `assets/${this.acessorioSelecionado}/${nomeEstilo}.png`;
-    }else if(this.acessorioSelecionado == "leg"){
-      this.caminhoLeg = `assets/${this.acessorioSelecionado}/${nomeEstilo}.png`;
-    }else if(this.acessorioSelecionado == "accessories"){
-      this.caminhoAccessories = `assets/${this.acessorioSelecionado}/${nomeEstilo}.png`;
-    }else if(this.acessorioSelecionado == "neck"){
-      this.caminhoNeck = `assets/${this.acessorioSelecionado}/${nomeEstilo}.png`;
+    switch (this.acessorioSelecionado.toUpperCase()) {
+      case this.obterStringEnum(AcessoriosAlpaca.HAIR):
+        this.caminhoHair = this.obterCaminhoImagem(this.acessorioSelecionado, nomeEstilo);
+        break;
+      case this.obterStringEnum(AcessoriosAlpaca.BACKGROUNDS):
+        this.caminhoBackground = this.obterCaminhoImagem(this.acessorioSelecionado, nomeEstilo);
+        break;
+      case this.obterStringEnum(AcessoriosAlpaca.EYES):
+        this.caminhoEyes = this.obterCaminhoImagem(this.acessorioSelecionado, nomeEstilo);
+        break;
+      case this.obterStringEnum(AcessoriosAlpaca.MOUTH):
+        this.caminhoMouth = this.obterCaminhoImagem(this.acessorioSelecionado, nomeEstilo);
+        break;
+      case this.obterStringEnum(AcessoriosAlpaca.EARS):
+        this.caminhoEars = this.obterCaminhoImagem(this.acessorioSelecionado, nomeEstilo);
+        break;
+      case this.obterStringEnum(AcessoriosAlpaca.LEG):
+        this.caminhoLeg = this.obterCaminhoImagem(this.acessorioSelecionado, nomeEstilo);
+        break;
+      case this.obterStringEnum(AcessoriosAlpaca.ACCESSORIES):
+        this.caminhoAccessories = this.obterCaminhoImagem(this.acessorioSelecionado, nomeEstilo);
+        break;
+      case this.obterStringEnum(AcessoriosAlpaca.NECK):
+        this.caminhoNeck = this.obterCaminhoImagem(this.acessorioSelecionado, nomeEstilo);
+        break;
+      default:
+        return;
     }
 
+  }
+
+  private obterStringEnum(acessorio: AcessoriosAlpaca): string {
+    return AcessoriosAlpaca[acessorio];
+  }
+
+  private obterCaminhoImagem(acessorioSelecionado: string, nomeEstilo:string): string{
+    return `assets/${acessorioSelecionado}/${nomeEstilo}.png`
   }
 
 }
